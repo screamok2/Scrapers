@@ -9,9 +9,7 @@ headers = {
     "Accept-Language": "en-US,en;q=0.9,de;q=0.8"
 }
 base_url = "https://www.amazon.de/gp/bestsellers/kitchen/ref=zg_bs_kitchen_sm"
-
 result = []
-
 
 url = f"https://www.amazon.de/gp/bestsellers/kitchen/ref=zg_bs_kitchen_sm"
 response = requests.get(url, headers=headers)
@@ -28,9 +26,7 @@ for name, price in zip(names, prices):
 for i in result:
     print(i["name"])
 
-
 df = pd.DataFrame(result)
 print(f"Added {len(result)}")
-
 excel_filename = "qeq.xlsx"
 df.to_excel(excel_filename, index=False)

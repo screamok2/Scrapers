@@ -21,9 +21,7 @@ while n < 2:
     pictures = soup.find_all("img", class_="product-card__image")
 
     for name, price, img_tag in zip(names, prices, pictures):
-
         img_url = urljoin(base_url, img_tag["src"])
-
 
         img_data = requests.get(img_url).content
         filename = os.path.join("images", os.path.basename(img_url.split("?")[0]))
@@ -51,10 +49,7 @@ for row, item in enumerate(result, start=2):
 
     # вставляем изображение
     img = XLImage(item["image_path"])
-    img.width = 80
     img.height = 80
-    ws.row_dimensions[row].height = 60
-    ws.add_image(img, f"C{row}")
 
 # заголовки жирным
 ws.column_dimensions["A"].width = 60

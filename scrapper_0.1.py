@@ -26,6 +26,5 @@ while n < 10:
     n=n+1
 df = pd.DataFrame(result)
 print(f"Added {len(result)}")
-
 excel_filename = "qeq.xlsx"
 df.to_excel(excel_filename, index=False)
